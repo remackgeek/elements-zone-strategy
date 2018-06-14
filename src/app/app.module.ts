@@ -1,36 +1,32 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { NgModule, Injector } from '@angular/core';
 
-import { AppComponent } from './app.component';
-import { MyRatingComponent, RatingComponent, RatingService } from './my-rating.component';
-
-import {ElementZoneStrategyFactory} from 'elements-zone-strategy';
-import { createCustomElement  } from '@angular/elements';
+import { ElementZoneStrategyFactory } from 'elements-zone-strategy';
+import { createCustomElement } from '@angular/elements';
+import { HelloComponent } from './hello/hello.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    MyRatingComponent,
-    RatingComponent
+    HelloComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule
   ],
-  entryComponents: [AppComponent, MyRatingComponent],
-  providers: [RatingService],
-  // bootstrap: [AppComponent]
+  entryComponents: [HelloComponent],
+
 })
 export class AppModule {
   constructor(private injector: Injector) { }
   ngDoBootstrap() {
 
-    const strategyFactory = new ElementZoneStrategyFactory(MyRatingComponent, this.injector);
+    const strategyFactory = new ElementZoneStrategyFactory(HelloComponent, this.injector);
+    const helloElement = createCustomElement(HelloComponent, { injector: this.injector, strategyFactory });
+    customElements.define('my-hello', helloElement);
 
-    const RatingElement = createCustomElement(MyRatingComponent, { injector: this.injector, strategyFactory   });
-    customElements.define('my-rating', RatingElement);
-
-    const RatingElement2 = createCustomElement(MyRatingComponent, { injector: this.injector  });
-    customElements.define('my-ratingtwo', RatingElement2);
+    const helloElement2 = createCustomElement(HelloComponent, { injector: this.injector });
+    customElements.define('my-hello-two', helloElement2);
   }
- }
+}
 

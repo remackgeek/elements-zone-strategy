@@ -9,19 +9,20 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-  <p></p>This one is broken
-  <div class="loadtimer2"></div>
+
   <p></p>This one works
   <div class="loadtimer"></div>
+  <p></p>This one is broken
+  <div class="loadtimer2"></div>
 
   <script>
     setTimeout(function() {
       const target = document.querySelector('.loadtimer');
-      target.innerHTML = '<my-rating rating="2"></my-rating>';
+      target.innerHTML = '<my-hello></my-hello>';
     }, 100);
     setTimeout(function() {
     const target2 = document.querySelector('.loadtimer2');
-      target2.innerHTML = '<my-ratingtwo rating="2"></my-ratingtwo>';
+      target2.innerHTML = '<my-hello-two></my-hello-two>';
     }, 100);
   </script>
 </body>

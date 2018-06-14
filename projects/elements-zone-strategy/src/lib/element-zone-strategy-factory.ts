@@ -8,9 +8,10 @@ export class ElementZoneStrategyFactory {
 
      protected generateName() {
       let result = 'dummy-name-';
-      for (let i = 0; i < ElementZoneStrategyFactory .counter / 24; i++) {
+      for (let i = 0; i < ElementZoneStrategyFactory.counter / 24; i++) {
         result = result + 'abcdefghijklmnopqrstuvwxyz'.charAt((ElementZoneStrategyFactory.counter % 24) + 1);
       }
+      ElementZoneStrategyFactory.counter++;
       return result;
     }
 
