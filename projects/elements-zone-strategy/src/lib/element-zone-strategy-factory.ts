@@ -1,8 +1,8 @@
 import { Injector, Type } from '@angular/core';
-import { createCustomElement, NgElementStrategy } from '@angular/elements';
+import { createCustomElement, NgElementStrategy, NgElementStrategyFactory } from '@angular/elements';
 import { ElementZoneStrategy } from './element-zone-strategy';
 
-export class ElementZoneStrategyFactory {
+export class ElementZoneStrategyFactory implements NgElementStrategyFactory {
     static counter = 1;
     private ngElement;
 
