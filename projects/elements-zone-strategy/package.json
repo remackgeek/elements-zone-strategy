@@ -1,6 +1,9 @@
 {
   "name": "elements-zone-strategy",
-  "version": "0.0.1",
+  "version": "6.0.1",
+  "description": "A custom NgElementStrategyFactory to enable zone-based change detection for Angular Elements",
+  "author": "remackgeek",
+  "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^6.0.0",
     "@angular/core": "^6.0.0",
