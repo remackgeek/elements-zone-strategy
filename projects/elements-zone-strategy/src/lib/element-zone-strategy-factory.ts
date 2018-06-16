@@ -8,10 +8,14 @@ export class ElementZoneStrategyFactory implements NgElementStrategyFactory {
 
   protected generateName() {
     let result = 'dummy-name-';
-    for (let i = 0; i < ElementZoneStrategyFactory.counter / 24; i++) {
-      result = result + 'a';
-    }
-    result = result + 'abcdefghijklmnopqrstuvwxyz'.charAt((ElementZoneStrategyFactory.counter % 24) + 1);
+
+    const temp = ElementZoneStrategyFactory.counter + '';
+    const mangled = temp.replace(/[0-9]/g, function (c) {
+      return 'abcdefghij'.charAt(
+             '0123456789'.indexOf(c));
+      });
+
+    result = result + mangled;
     ElementZoneStrategyFactory.counter++;
     return result;
   }
