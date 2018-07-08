@@ -6,16 +6,18 @@ export class ElementZoneStrategyFactory implements NgElementStrategyFactory {
   static counter = 1;
   private ngElement;
 
+  protected string4() {
+    return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+  }
+
   protected generateName() {
-    let result = 'dummy-name-';
+    let result = 'dummy-name-n';
 
     const temp = ElementZoneStrategyFactory.counter + '';
-    const mangled = temp.replace(/[0-9]/g, function (c) {
-      return 'abcdefghij'.charAt(
-             '0123456789'.indexOf(c));
-      });
 
-    result = result + mangled;
+    result = result + temp + '-' + this.string4() + this.string4() + this.string4() + '-' +
+      this.string4() + this.string4() + '-' + this.string4();
+
     ElementZoneStrategyFactory.counter++;
     return result;
   }
