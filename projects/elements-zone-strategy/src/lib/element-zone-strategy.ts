@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { NgElementStrategyEvent, NgElementStrategy } from '@angular/elements';
 
 
-export class ElementZoneStrategy {
+export class ElementZoneStrategy implements NgElementStrategy {
     private ngZone: NgZone;
 
     events: Observable<NgElementStrategyEvent>;
@@ -29,5 +29,5 @@ export class ElementZoneStrategy {
         this.runInZone(() => { this.strategy.setInputValue(propName, value); });
     }
 
-    private runInZone(fn: () => any) { return NgZone.isInAngularZone() ? fn() : this.ngZone.run(fn); }
+    private runInZone(fn: () => any) { return this.ngZone.run(fn); }
 }
