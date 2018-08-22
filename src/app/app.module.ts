@@ -15,7 +15,6 @@ import { HelloComponent } from './hello/hello.component';
     FormsModule
   ],
   entryComponents: [HelloComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule {
   constructor(private injector: Injector) { }
