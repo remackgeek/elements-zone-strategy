@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { NgElementStrategyEvent, NgElementStrategy } from '@angular/elements';
 
 
-export class ElementZoneStrategy implements NgElementStrategy {
+export class ElementZoneStrategy {
     private ngZone: NgZone;
 
     events: Observable<NgElementStrategyEvent>;
