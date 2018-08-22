@@ -15,6 +15,7 @@ import { HelloComponent } from './hello/hello.component';
     FormsModule
   ],
   entryComponents: [HelloComponent],
+  
 })
 export class AppModule {
   constructor(private injector: Injector) { }
