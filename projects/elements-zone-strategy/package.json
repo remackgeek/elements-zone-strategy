@@ -1,13 +1,13 @@
 {
   "name": "elements-zone-strategy",
-  "version": "7.0.0",
+  "version": "8.0.0-beta.1",
   "description": "A custom NgElementStrategyFactory to enable zone-based change detection for Angular Elements",
   "author": "remackgeek",
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^6.0.0 || ^7.0.0",
-    "@angular/core": "^6.0.0 || ^7.0.0",
-    "@angular/elements": "^6.0.0 || ^7.0.0"
+    "@angular/common": "^6.0.0 || ^7.0.0 || ^8.0.0",
+    "@angular/core": "^6.0.0 || ^7.0.0 || ^8.0.0",
+    "@angular/elements": "^6.0.0 || ^7.0.0 || ^8.0.0"
   },
   "repository": "github:remackgeek/elements-zone-strategy",
   "homepage": "https://github.com/remackgeek/elements-zone-strategy",
