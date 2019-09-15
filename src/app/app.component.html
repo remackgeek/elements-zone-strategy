@@ -1,0 +1,37 @@
+<div style="border-color:green; border-style:solid;">
+  <div>
+    This row is broken (ngFor loop)
+  </div>
+  <div class="my-rating">
+    <div *ngFor="let rating of ratingStates;let ratingIndex=index">
+      <div class="rating {{'index'+ratingIndex}}" [ngClass]="{ 'filled': rating }" (click)="handleRatingClicked(ratingIndex)">
+      </div>
+    </div>
+  </div>
+  <br>
+  <div>
+    This row works (unrolled loop)
+  </div>
+  <div class="my-rating">
+    <div>
+      <div class="rating" [ngClass]="{ 'filled': ratingStates[0] }" (click)="handleRatingClicked(0)">
+      </div>
+    </div>
+    <div>
+      <div class="rating" [ngClass]="{ 'filled': ratingStates[1] }" (click)="handleRatingClicked(1)">
+      </div>
+    </div>
+    <div>
+      <div class="rating" [ngClass]="{ 'filled': ratingStates[2] }" (click)="handleRatingClicked(2)">
+      </div>
+    </div>
+    <div>
+      <div class="rating" [ngClass]="{ 'filled': ratingStates[3] }" (click)="handleRatingClicked(3)">
+      </div>
+    </div>
+    <div>
+      <div class="rating" [ngClass]="{ 'filled': ratingStates[4] }" (click)="handleRatingClicked(4)">
+      </div>
+    </div>
+  </div>
+</div>

@@ -9,22 +9,49 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
+<h1 class="welcome">Welcome to app!</h1>
+<h3>My Awesome Rating is
+  <span id="rating">1</span>
+</h3>
+<button id="ratingBtn">Give max rating</button>
+<p>
+  <my-app id="foo" rating="0">
+    <my-app>
+      <p>
+        <span>
+          Click 1st dot (either row), Click Max Rating Button, then click 2nd dot of broken row (nothing happens).
+          For comparison, click 2nd dot of working row.
+        </span>
+      </p>
+      <p>
+        <span>
+          first row works thanks to Elements-Zone-Strategy! :)
+        </span>
+      </p>
 
-  <p></p>This one works
-  <div class="loadtimer"></div>
-  <p></p>This one is broken
-  <div class="loadtimer2"></div>
 
-  <script>
+<script>
+  const ratingComponent = document.querySelector('#foo');
+  const ratingText = document.querySelector('#rating');
+  const ratingButton = document.querySelector('#ratingBtn');
 
-    setTimeout(function() {
-    const target2 = document.querySelector('.loadtimer2');
-      target2.innerHTML = '<my-hello-two></my-hello-two>';
-    }, 10);
-    setTimeout(function () {
-      const target = document.querySelector('.loadtimer');
-      target.innerHTML = '<my-hello></my-hello>';
-    }, 4000);
-  </script>
+  const ratingComponent2 = document.querySelector('#foo2');
+
+  function foo(data) {
+    ratingText.innerHTML = ratingComponent.rating + 1;
+  }
+
+  function myClick() {
+    ratingComponent.rating = 4;
+    ratingComponent2.rating = 4;
+  }
+
+  ratingComponent.addEventListener('ratingChange', foo);
+
+  ratingButton.addEventListener('click', myClick);
+</script>
+
+
+
 </body>
 </html>
