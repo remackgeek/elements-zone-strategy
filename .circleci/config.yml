@@ -6,7 +6,7 @@ jobs:
   build_and_test:
     docker:
       # specify the version you desire here
-      - image: circleci/node:12.14.0-browsers
+      - image: circleci/node:10.18.1-browsers
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -43,7 +43,7 @@ jobs:
 
       # run app tests
       - run: npm run test:app
-      
+
       # run e2e tests!
       - run: npm run test:e2e
 
@@ -56,7 +56,7 @@ jobs:
           root: dist
           paths:
             - elements-zone-strategy
-      
+
   deploy:
     docker:
       # specify the version you desire here
@@ -85,7 +85,7 @@ workflows:
       - hold: # <<< A job that will require manual approval in the CircleCI web application.
           type: approval # <<< This key-value pair will set your workflow to a status of "On Hold"
           requires: # We only run the "hold" job when test2 has succeeded
-           - build_and_test
+            - build_and_test
           filters:
             tags:
               only: /^v.*/
@@ -99,4 +99,3 @@ workflows:
               only: /^v.*/
             branches:
               ignore: /.*/
-
