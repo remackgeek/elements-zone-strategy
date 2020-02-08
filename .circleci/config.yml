@@ -69,7 +69,7 @@ jobs:
 
     steps:
       - attach_workspace:
-          at: dist
+          at: ~/repo
 
       # testing
       - run: ls -ls
