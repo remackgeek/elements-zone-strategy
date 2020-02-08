@@ -75,8 +75,6 @@ jobs:
 
       - run: ls -lsa elements-zone-strategy
 
-      - run: ls -lsa elements-zone-strategy/dist
-
       # Authenticate with registry
       - run: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
 
@@ -85,7 +83,7 @@ jobs:
           command: mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
 
       # deploy to npm
-      - run: npm publish ./dist/elements-zone-strategy
+      - run: npm publish ./elements-zone-strategy
 
 workflows:
   version: 2
