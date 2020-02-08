@@ -47,6 +47,9 @@ jobs:
       # run e2e tests!
       - run: npm run test:e2e
 
+      # rebuild library without ngcc (Ivy) -- cause by app build in test step
+      - run: npm run build:lib
+
       # upload package
       - store_artifacts:
           path: dist
@@ -67,9 +70,6 @@ jobs:
     steps:
       - attach_workspace:
           at: dist
-
-      # rebuild library without ngcc (Ivy) -- cause by app build in test step
-      - run: npm run build:lib
 
       # Authenticate with registry
       - run: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
