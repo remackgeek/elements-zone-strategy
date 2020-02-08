@@ -71,11 +71,12 @@ jobs:
       - attach_workspace:
           at: ~/repo
 
-      # testing
-      - run: ls -ls
-
       # Authenticate with registry
       - run: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
+
+      - run:
+          name: Avoid hosts unknown for github
+          command: mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
 
       # deploy to npm
       - run: npm publish dist/elements-zone-strategy
