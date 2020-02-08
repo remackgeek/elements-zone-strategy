@@ -75,7 +75,7 @@ jobs:
       - run: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
 
       # deploy to npm
-      - run: npm publish dist/elements-zone-strategy --dry-run
+      - run: npm publish dist/elements-zone-strategy
 
 workflows:
   version: 2
