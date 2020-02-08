@@ -71,6 +71,9 @@ jobs:
       - attach_workspace:
           at: dist
 
+      # testing
+      - run: ls -ls
+
       # Authenticate with registry
       - run: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
 
