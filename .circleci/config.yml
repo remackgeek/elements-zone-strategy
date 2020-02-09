@@ -71,9 +71,9 @@ jobs:
           at: ~/repo
 
       # Authenticate with registry
-      - run: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
+      - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
 
-      - run: echo "//registry.npmjs.org/:_authToken=$dummy_VAR" > ~/repo/foo
+      - run: echo "//registry.npmjs.org/:_authToken=$DUMMY_VAR" > ~/repo/foo
 
       - run: cat ~/repo/foo
 
