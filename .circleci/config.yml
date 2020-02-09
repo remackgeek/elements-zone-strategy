@@ -73,10 +73,6 @@ jobs:
       # Authenticate with registry
       - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
 
-      - run: echo "//registry.npmjs.org/:_authToken=$DUMMY_VAR" > ~/repo/foo
-
-      - run: cat ~/repo/foo
-
       - run: ls -lsa
 
       # deploy to npm
