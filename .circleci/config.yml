@@ -56,9 +56,8 @@ jobs:
 
       # save package for downstream
       - persist_to_workspace:
-          root: dist
-          paths:
-            - elements-zone-strategy
+          root: ~/repo
+          paths: .
 
   deploy:
     docker:
@@ -77,7 +76,7 @@ jobs:
       - run: ls -lsa
 
       # deploy to npm
-      - run: npm publish ./elements-zone-strategy
+      - run: npm publish ./dist/elements-zone-strategy
 
 workflows:
   version: 2
