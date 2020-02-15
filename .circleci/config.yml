@@ -78,6 +78,25 @@ jobs:
       # deploy to npm
       - run: npm publish ./dist/elements-zone-strategy
 
+  deploy_beta:
+    docker:
+      # specify the version you desire here
+      - image: circleci/node:10.18.1-browsers
+
+    working_directory: ~/repo
+
+    steps:
+      - attach_workspace:
+          at: ~/repo
+
+      # Authenticate with registry
+      - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
+
+      - run: ls -lsa
+
+      # deploy to npm
+      #- run: npm publish ./dist/elements-zone-strategy -tag beta
+
 workflows:
   version: 2
   build:
@@ -92,7 +111,9 @@ workflows:
             - build_and_test
           filters:
             tags:
-              only: /^v.*/
+              only:
+                - /^v.*/
+                - /^b.*/
             branches:
               ignore: /.*/
       - deploy:
@@ -101,5 +122,13 @@ workflows:
           filters:
             tags:
               only: /^v.*/
+            branches:
+              ignore: /.*/
+      - deploy_beta:
+          requires:
+            - hold
+          filters:
+            tags:
+              only: /^b.*/
             branches:
               ignore: /.*/
