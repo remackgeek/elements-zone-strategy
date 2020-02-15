@@ -95,7 +95,7 @@ jobs:
       - run: ls -lsa
 
       # deploy to npm
-      #- run: npm publish ./dist/elements-zone-strategy -tag beta
+      - run: npm publish ./dist/elements-zone-strategy -tag beta
 
 workflows:
   version: 2
