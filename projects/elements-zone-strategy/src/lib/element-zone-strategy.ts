@@ -10,12 +10,19 @@ export class ElementZoneStrategy {
 
     constructor(protected strategy: NgElementStrategy, protected injector: Injector) {
         this.ngZone = this.injector.get<NgZone>(NgZone);
+
+        if (this.strategy.events) {
+            this.events = this.strategy.events;
+        }
+
     }
 
     connect(element: HTMLElement): void {
         this.runInZone(() => { this.strategy.connect(element); });
 
-        this.events = this.strategy.events;
+        if (!this.events) {
+            this.events = this.strategy.events;
+        }
     }
 
     disconnect(): void {
