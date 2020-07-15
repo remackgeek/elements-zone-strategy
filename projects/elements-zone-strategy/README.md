@@ -25,6 +25,8 @@ use the new strategy:
 
 ## Versions
 
+use version 10.0.0 for Angular 10
+
 use version 9.0.0 for Angular 9
 
 use version 8.0.0 for Angular 6-8
